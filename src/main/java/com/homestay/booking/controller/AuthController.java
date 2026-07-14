@@ -35,7 +35,7 @@ public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
 }
 
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
         String response = authService.register(request);
         if (response.startsWith("Lỗi")) {
             return ResponseEntity.badRequest().body(response);
